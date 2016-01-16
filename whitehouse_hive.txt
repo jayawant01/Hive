@@ -1,0 +1,67 @@
+select time_of_arrival ,lname,fname 
+
+from wh_visits
+
+where time_of_arrival != ''
+
+ order by  unix_timestamp(time_of_arrival,'MM/dd/yyyy hh:mm') asc 
+limit 1 ;
+
+select  info_comment ,count(*) as cnt
+
+from wh_visits
+
+group by info_comment 
+
+having cnt >1 
+order by cnt desc
+limit 10 ;
+
+
+select info_comment ,COUNT(*) from wh_visits
+where info_comment rlike '.*GEN.*\\s+RECEP.*'
+GROUP BY INFO_COMMENT ;
+
+
+select info_comment ,COUNT(*)CNT from wh_visits
+where info_comment like '%GEN%'
+AND INFO_COMMENT LIKE '%RECEP%'
+GROUP BY INFO_COMMENT 
+ORDER BY CNT DESC
+LIMIT 30 ;
+
+
+select COUNT(*)CNT from wh_visits
+where info_comment like '%GEN%'
+AND INFO_COMMENT LIKE '%RECEP%' ;
+
+------------------
+
+--calculating ngrams 
+
+create table constitution ( line String ) ROW FORMAT DELIMITED ;
+LOAD DATA LOCAL INPATH '/root/devph/labs/demos/constitution.txt' into table Constitution ;
+
+--binomial ,15 most common words or top 15 results (rows) 
+select explode(ngrams(sentences(line),2,15)) as x from constitution ;
+## sample output
+##{"ngram":["for","the"],"estfrequency":21.0}
+##{"ngram":["the","Senate"],"estfrequency":21.0}
+
+
+--trinomial  , 15 most common or top 15 results (rows)
+
+select explode(ngrams(sentences(line),3,15)) as x from constitution ;
+## sample output
+{"ngram":["the","United","States"],"estfrequency":68.0}
+{"ngram":["of","the","United"],"estfrequency":51.0}
+
+-- compute contextual ngram 
+20 most frequent words which follows the 
+select explode(context_ngrams(sentences(line),array('the',null),20)) as x from constitution ;
+
+
+
+
+
+

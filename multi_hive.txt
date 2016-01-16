@@ -1,0 +1,9 @@
+from orders o 
+
+insert overwrite directory '2010_orders'
+
+select o.* where year(order_date) ='2010'
+
+insert overwrite directory 'software'
+
+select o.*  where itemlist like '%Software%' ;

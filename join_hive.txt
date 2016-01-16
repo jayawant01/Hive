@@ -1,0 +1,12 @@
+ing the modular data for cpu_aidle#012
+Nov  5 00:54:26 sandbox /usr/sbin/gmond[4844]: Error 1 sending the modular data for cpu_wio#012
+Nov  5 00:54:26 sandbox /usr/sbin/gmond[4844]: Error 1 sending the modular data for load_one#012
+Nov  5 00:54:26 sandbox /usr/sbin/gmond[4844]: Error 1 sending the modular data for load_five#012
+Nov  5 00:54:26 sandbox /usr/sbin/gmond[4844]: Error 1 sending the modular data for load_fifteen#012
+Nov  5 00:54:26 sandbox /usr/sbin/gmond[4844]: Error 1 sending the modular data for proc_run#012
+Nov  5 00:54:26 sandbox /usr/sbin/gmond[4844]: Error 1 sending the modular data for proc_total#012
+Nov  5 00:54:26 sandbox /usr/sbin/gmond[4844]: Error 1 sending the modular data for mem_free#012
+Nov  5 00:54:26 sandbox /usr/sbin/gmond[4844]: Error 1 sending the modular data for mem_shared#012
+Nov  5 00:54:26 sandbox /usr/sbin/gmond[4844]: Error 1 sending the modular data for mem_buffers#012
+Nov  5 00:54:26 sandbox /usr/sbin/gmond[4844]: Error 1 sending the modular data for mem_cached#012
+Nov
